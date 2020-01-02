@@ -86,78 +86,78 @@ class logisticRegrssion():
 if __name__ == "__main__":
     '''loading data'''
 
-    # #part 2
-    #
-    # from sklearn.datasets import load_iris
-    # iris = load_iris()
-    # X = iris.data[:, :2]
-    # y = (iris.target != 0) * 1
-    # y = y.reshape(-1, 1)
-    # '''splitting data train and test'''
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25,
-    #                                                     random_state=10)
-    # '''normalizing and scaling '''
-    # ssx = StandardScaler().fit(X_train)
-    # X_train_std = ssx.transform(X_train)
-    # X_test_std = ssx.transform(X_test)
-    # #GD
-    # LogRegGD = logisticRegrssion(method='GD',n_iteration=1000)
-    # LogRegGD.fit(X_train_std, y_train)
-    # # train
-    # y_pred_train = LogRegGD.predict(X_train_std)
-    # Base_MSE_train_GD = LogRegGD.score(y_train, y_pred_train,method="TPR")
-    # # test
-    # y_pred_test= LogRegGD.predict(X_test_std)
-    # Base_MSE_test_GD = LogRegGD.score(y_test, y_pred_test,method="TPR")
-    # plt.plot(list(range(LogRegGD.n_iteration)),LogRegGD.grad_loss)
-    # plt.xlabel('epoch')
-    # plt.ylabel('loss')
-    # plt.title('GD loss ')
-    # plt.show()
-    # #SGD
-    # LogRegSGD = logisticRegrssion(method='SGD',n_iteration=1000 )
-    # LogRegSGD.fit(X_train_std, y_train)
-    # # train
-    # y_pred_train = LogRegSGD.predict(X_train_std)
-    # Base_MSE_train_SGD = LogRegSGD.score(y_train, y_pred_train, method="TPR")
-    # # test
-    # y_pred_test = LogRegSGD.predict(X_test_std)
-    # Base_MSE_test_SGD = LogRegSGD.score(y_test, y_pred_test, method="TPR")
-    # plt.plot( range(LogRegSGD.n_iteration),LogRegSGD.grad_loss)
-    # plt.xlabel('epoch')
-    # plt.ylabel('loss')
-    # plt.title('SGD loss ')
-    # plt.show()
-    #
-    #
-    # #part 3
-    #
-    # import matplotlib.pyplot as plt
-    # def plot_samples(X, y, gd_model=None, sgd_model=None):
-    #     plt.scatter(X[y == 0][:, 0], X[y == 0][:, 1], color='b', label='0')
-    #     plt.scatter(X[y == 1][:, 0], X[y == 1][:, 1], color='r', label='1')
-    #
-    #     x1_min, x1_max = X[:, 0].min(), X[:, 0].max(),
-    #     x2_min, x2_max = X[:, 1].min(), X[:, 1].max(),
-    #     xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max), np.linspace(x2_min, x2_max))
-    #     grid = np.c_[xx1.ravel(), xx2.ravel()]
-    #     if gd_model is not None:
-    #         probs = gd_model.predict_prob(grid).reshape(xx1.shape)
-    #         plt.contour(xx1, xx2, probs, [0.5], linewidths=1, colors='black', label='GD');
-    #     if sgd_model is not None:
-    #         probs = sgd_model.predict_prob(grid).reshape(xx1.shape)
-    #         plt.contour(xx1, xx2, probs, [0.5], linewidths=1, colors='green', label='SGD');
-    #     plt.legend()
-    #     plt.show()
-    #     print('poop')
-    #
-    #
-    # LogRegGD1 = logisticRegrssion(method='GD', n_iteration=1000)
-    # LogRegGD1.fit(X, y)
-    # LogRegSGD1 = logisticRegrssion(method='SGD', n_iteration=1000)
-    # LogRegSGD1.fit(X, y)
-    # plot_samples(X, y, gd_model=LogRegGD1, sgd_model=LogRegSGD1)
-    #
+    #part 2
+    
+    from sklearn.datasets import load_iris
+    iris = load_iris()
+    X = iris.data[:, :2]
+    y = (iris.target != 0) * 1
+    y = y.reshape(-1, 1)
+    '''splitting data train and test'''
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25,
+                                                        random_state=10)
+    '''normalizing and scaling '''
+    ssx = StandardScaler().fit(X_train)
+    X_train_std = ssx.transform(X_train)
+    X_test_std = ssx.transform(X_test)
+    #GD
+    LogRegGD = logisticRegrssion(method='GD',n_iteration=1000)
+    LogRegGD.fit(X_train_std, y_train)
+    # train
+    y_pred_train = LogRegGD.predict(X_train_std)
+    Base_MSE_train_GD = LogRegGD.score(y_train, y_pred_train,method="TPR")
+    # test
+    y_pred_test= LogRegGD.predict(X_test_std)
+    Base_MSE_test_GD = LogRegGD.score(y_test, y_pred_test,method="TPR")
+    plt.plot(list(range(LogRegGD.n_iteration)),LogRegGD.grad_loss)
+    plt.xlabel('epoch')
+    plt.ylabel('loss')
+    plt.title('GD loss ')
+    plt.show()
+    #SGD
+    LogRegSGD = logisticRegrssion(method='SGD',n_iteration=1000 )
+    LogRegSGD.fit(X_train_std, y_train)
+    # train
+    y_pred_train = LogRegSGD.predict(X_train_std)
+    Base_MSE_train_SGD = LogRegSGD.score(y_train, y_pred_train, method="TPR")
+    # test
+    y_pred_test = LogRegSGD.predict(X_test_std)
+    Base_MSE_test_SGD = LogRegSGD.score(y_test, y_pred_test, method="TPR")
+    plt.plot( range(LogRegSGD.n_iteration),LogRegSGD.grad_loss)
+    plt.xlabel('epoch')
+    plt.ylabel('loss')
+    plt.title('SGD loss ')
+    plt.show()
+    
+    
+    #part 3
+    
+    import matplotlib.pyplot as plt
+    def plot_samples(X, y, gd_model=None, sgd_model=None):
+        plt.scatter(X[y == 0][:, 0], X[y == 0][:, 1], color='b', label='0')
+        plt.scatter(X[y == 1][:, 0], X[y == 1][:, 1], color='r', label='1')
+    
+        x1_min, x1_max = X[:, 0].min(), X[:, 0].max(),
+        x2_min, x2_max = X[:, 1].min(), X[:, 1].max(),
+        xx1, xx2 = np.meshgrid(np.linspace(x1_min, x1_max), np.linspace(x2_min, x2_max))
+        grid = np.c_[xx1.ravel(), xx2.ravel()]
+        if gd_model is not None:
+            probs = gd_model.predict_prob(grid).reshape(xx1.shape)
+            plt.contour(xx1, xx2, probs, [0.5], linewidths=1, colors='black', label='GD');
+        if sgd_model is not None:
+            probs = sgd_model.predict_prob(grid).reshape(xx1.shape)
+            plt.contour(xx1, xx2, probs, [0.5], linewidths=1, colors='green', label='SGD');
+        plt.legend()
+        plt.show()
+        
+    
+    
+    LogRegGD1 = logisticRegrssion(method='GD', n_iteration=1000)
+    LogRegGD1.fit(X, y)
+    LogRegSGD1 = logisticRegrssion(method='SGD', n_iteration=1000)
+    LogRegSGD1.fit(X, y)
+    plot_samples(X, y, gd_model=LogRegGD1, sgd_model=LogRegSGD1)
+    
 
 
     #part 4-mnist
@@ -190,4 +190,4 @@ if __name__ == "__main__":
     y_test_pred=Log.predict(x_test.reshape(-1,1))
     cm=confusion_matrix(y_test, y_test_pred)
     print(classification_report(y_test, y_test_pred))
-    print('poop')
+   
